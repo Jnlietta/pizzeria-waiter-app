@@ -6,6 +6,13 @@ const UBDATE_TABLES = createActionName('UBDATE_TABLES');
 
 // action creators
 export const ubdateTables = payload => ({ type: UBDATE_TABLES, payload });
+export const fetchTables = () => {
+  return (dispatch) => {
+    fetch('http://localhost:3131/tables')
+      .then(res => res.json())
+      .then(tables => dispatch(ubdateTables(tables)));
+  }
+};
 
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
