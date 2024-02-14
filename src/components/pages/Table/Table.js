@@ -1,6 +1,15 @@
+import { useParams } from "react-router-dom";
+import TableForm from "../../features/TableForm/TableForm";
+
 const Table = () => {
+  const {tableId} = useParams();
+
     return (
-      <h1>Table page</h1>
+      <div>
+        <h1>Table {tableId}</h1>
+        <TableForm />
+      </div>
+
     );
   };
   
