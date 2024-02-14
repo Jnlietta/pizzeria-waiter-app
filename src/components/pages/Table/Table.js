@@ -7,7 +7,7 @@ const Table = () => {
     return (
       <div>
         <h1>Table {tableId}</h1>
-        <TableForm />
+        <TableForm tableId={tableId}/>
       </div>
 
     );
