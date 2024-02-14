@@ -1,7 +1,13 @@
 import { Button, Form } from "react-bootstrap";
 import styles from "./TableForm.module.scss";
+import { useState } from "react";
 
-const TableForm = ({ tableId }) => {
+const TableForm = ({ tableId, ...props }) => {
+    const [status, setStatus] = useState(props.status);
+    const [peopleAmount, setPeopleAmount] = useState(props.peopleAmount);
+    const [maxPeopleAmount, setMaxPeopleAmount] = useState(props.maxPeopleAmount);
+    const [bill, setBill] = useState(props.bill);
+
 
     return(
         <Form>
@@ -10,10 +16,10 @@ const TableForm = ({ tableId }) => {
                 <Form.Select 
                     style={{ width: '220px', marginLeft: '15px'}}
                     aria-label="Default select example"
-                    // value=
-                    // onChange= 
+                    value={status}
+                    onChange={e => setStatus(e.target.value)} 
                     >
-                    <option>Select status...</option>
+                    <option>{status}</option>
                 </Form.Select>
             </div>
             <div className={styles.line}>
@@ -21,16 +27,16 @@ const TableForm = ({ tableId }) => {
                 <Form.Control
                     className={styles.input}
                     style={{ width: '50px' }}
-                    value="2"
-                    // onChange={e => setTitle(e.target.value)}
+                    value={peopleAmount}
+                    onChange={e => setPeopleAmount(e.target.value)}
                     type="text" placeholder="Enter title"
                     />
                 <span>/</span>
                 <Form.Control
                     className={styles.input}
                     style={{ width: '50px' }}
-                    value="2"
-                    // onChange={e => setTitle(e.target.value)}
+                    value={maxPeopleAmount}
+                    onChange={e => setMaxPeopleAmount(e.target.value)}
                     type="text" placeholder="Enter title"
                     />
             </div>
@@ -40,8 +46,8 @@ const TableForm = ({ tableId }) => {
                 <Form.Control
                     className={styles.input}
                     style={{ width: '50px'}}
-                    value="345"
-                    // onChange={e => setTitle(e.target.value)}
+                    value={bill}
+                    onChange={e => setBill(e.target.value)}
                     type="text" placeholder="Enter title"
                     />
             </div>
