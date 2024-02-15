@@ -2,15 +2,19 @@ import { Button, Form } from "react-bootstrap";
 import styles from "./TableForm.module.scss";
 import { useState } from "react";
 
-const TableForm = ({ tableId, ...props }) => {
+const TableForm = ({ action, tableId, ...props }) => {
     const [status, setStatus] = useState(props.status);
     const [peopleAmount, setPeopleAmount] = useState(props.peopleAmount);
     const [maxPeopleAmount, setMaxPeopleAmount] = useState(props.maxPeopleAmount);
     const [bill, setBill] = useState(props.bill);
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        action({tableId, status, peopleAmount, maxPeopleAmount, bill});
+    }
 
     return(
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <div className={styles.line}>
                 <strong>Status:</strong>
                 <Form.Select 
@@ -19,7 +23,9 @@ const TableForm = ({ tableId, ...props }) => {
                     value={status}
                     onChange={e => setStatus(e.target.value)} 
                     >
-                    <option>{status}</option>
+                    <option>Busy</option>
+                    <option>Free</option>
+                    <option>Cleaning</option>
                 </Form.Select>
             </div>
             <div className={styles.line}>
