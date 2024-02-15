@@ -2,8 +2,8 @@
   "tables": [
     {
       "tableId": "1",
-      "status": "Busy",
-      "peopleAmount": "1",
+      "status": "Free",
+      "peopleAmount": "0",
       "maxPeopleAmount": "4",
       "bill": "20",
       "id": "1"
@@ -24,11 +24,12 @@
       "bill": 45
     },
     {
-      "id": "4",
-      "status": "Cleaning",
+      "tableId": "4",
+      "status": "Free",
       "peopleAmount": 0,
       "maxPeopleAmount": 3,
-      "bill": 0
+      "bill": 0,
+      "id": "4"
     }
   ]
 }
